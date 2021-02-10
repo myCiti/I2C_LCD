@@ -17,12 +17,20 @@ def get_time_now():     # get system time
 def loop():
     mcp.output(3,1)     # turn on LCD backlight
     lcd.begin(16,2)     # set number of LCD lines and columns
-    while(True):         
-        #lcd.clear()
-        lcd.setCursor(0,0)  # set cursor position
-        lcd.message( 'CPU: ' + get_cpu_temp()+'\n' )# display CPU temperature
-        lcd.message( get_time_now() )   # display the time
+#    while(True):         
+#        #lcd.clear()
+#        lcd.setCursor(0,0)  # set cursor position
+#        lcd.message( 'CPU: ' + get_cpu_temp()+'\n' )# display CPU temperature
+#        lcd.message( get_time_now() )   # display the time
+#        sleep(1)
+    lcd.setCursor(1,0)  # set cursor position
+    for i in reversed(range(10)):
+        lcd.message("    M. Dan \n")
+        lcd.message("       " + str(i))
         sleep(1)
+        lcd.clear()
+
+    lcd.message("   KABOOM")
         
 def destroy():
     lcd.clear()
